@@ -2,6 +2,7 @@ import { useRef,useReducer,createContext } from 'react'
 import CardList from './components/CardList'
 import AddList from './components/AddList'
 import { HTML5Backend } from 'react-dnd-html5-backend'
+import { TouchBackend } from 'react-dnd-touch-backend';
 import { DndProvider } from 'react-dnd'
 import './App.css'
 import cover_Img from './assets/cover_Img.jpeg'
@@ -91,6 +92,14 @@ function App() {
   const closeAbout = ()=>{
     sideRef.current.style.display = 'none'
   }
+
+  // utils.js
+  const isTouchDevice = () => {
+    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  };
+
+
+  const dndBackend = isTouchDevice() ? TouchBackend : HTML5Backend;
   return (
     <>
       <nav>
@@ -126,7 +135,7 @@ function App() {
           </div>
         </div>
       </div>
-      <DndProvider backend={HTML5Backend}>
+      <DndProvider backend={dndBackend}>
         <div className="container">
           <context.Provider value={{state,dispatch}} >
             {
