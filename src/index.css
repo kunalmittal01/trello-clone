@@ -238,6 +238,7 @@ textarea{
 }
 
 .sidebar {
+ display: none; 
  position: absolute;
  top: 0; 
  right: 0;
@@ -246,7 +247,6 @@ textarea{
  padding: 10px;
  z-index: 2;
  height: 100vh;
- transform: translateX(300px);
  transition: all 0.5s ease;
 }
 

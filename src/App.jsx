@@ -83,11 +83,13 @@ function App() {
   const sideRef = useRef(null);
 
   const handleAbout = ()=>{
-    sideRef.current.style.transform = 'translateX(0px)'
+    sideRef.current.style.display = 'block'
+    console.log(sideRef.current);
+    
   }
 
   const closeAbout = ()=>{
-    sideRef.current.style.transform = 'translateX(300px)'
+    sideRef.current.style.display = 'none'
   }
   return (
     <>
